@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <title>Simple Map</title>
+    
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+        #panel{
+        position: absolute;
+        top: 15px;
+        
+        margin-left:13px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px ;
+        }
+        
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    <script>
+var map;
+
+
+function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var m=pos
+    var mapOptions = {
+    zoom: 0,
+    center:pos
+  };
+    
+var contentString="kjlkk";    
+    
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
+
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'Location found using HTML5.'
+      });
+
+        
+function codeAddress() {
+  var address = document.getElementById('address').value;
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}        
+        
+  var marker = new google.maps.Marker({
+      position: pos
+     
+  });
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+var map;
+
+
+function initialize() {
+    var m=new google.maps.LatLng( 17.4545559,78.3716113)
+    var mapOptions = {
+    zoom: 8,
+    center: m
+  };
+    
+      
+var contentString="kjlkk";    
+    
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+  });
+
+  var marker = new google.maps.Marker({
+      position: m,
+      map: map,
+      title: 'Uluru (Ayers Rock)'
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>
+     
+  
+
+    </script>
+  </head>
+  <body>
+     <div id="panel">
+      <input id="address" autocomplete="on" type="text" value="Hyderabad">
+      <input type="button" value="Geocode" onclick="codeAddress()">
+    </div>
+    <div id="map-canvas"></div>
+  </body>
+</html>

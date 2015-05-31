@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+
+
+    <title>Welcome -New User</title>
+    
+    
+    
+    
+        <style>
+      @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+body{
+	margin: 0;
+	padding: 0;
+	background-color: coral;
+
+
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.body{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	
+	background-size: cover;
+	-webkit-filter: blur(2px);
+	z-index: 0;
+}
+
+.grad{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+	z-index: 1;
+	opacity: 0.7;
+}
+
+.header{
+	position: absolute;
+	top: calc(40% - 35px);
+	left: calc(50% - 255px);
+	z-index: 2;
+}
+
+.header div{
+	float: left;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 35px;
+	font-weight: 200;
+}
+
+.header div span{
+	color: #5379fa !important;
+}
+
+.login{
+	position: absolute;
+	top: calc(40% - 75px);
+	left: calc(50% - 50px);
+	height: 150px;
+	width: 350px;
+	z-index: 2;
+}
+
+.login input[type=text]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+.login input[type=password]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+#dwn
+            {
+                align-content: bottom;
+                background: transparent;
+                color: #fff;
+            }
+            
+            
+.login input[type=button]{
+	width: 260px;
+	height: 35px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+.login input[type=button]:hover{
+	opacity: 0.8;
+}
+
+.login input[type=button]:active{
+	opacity: 0.6;
+}
+
+.login input[type=text]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=password]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=button]:focus{
+	outline: none;
+}
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+            
+    </style>
+
+    
+        <script src="js/prefixfree.min.js"></script>
+
+    
+  </head>
+
+  <body>
+
+    <div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>Sign<span>Up</span></div>
+		</div>
+		<br>
+		<div class="login">
+           <script type="text/javascript">
+
+  function checkPassword(str)
+  {
+    var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    return re.test(str);
+  }
+
+  function checkForm(form)
+  {
+    if(form.username.value == "") {
+      alert("Error: Username cannot be blank!");
+      form.username.focus();
+      return false;
+    }
+    re = /^\w+$/;
+    if(!re.test(form.username.value)) {
+      alert("Error: Username must contain only letters, numbers and underscores!");
+      form.username.focus();
+      return false;
+    }
+    if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+      if(!checkPassword(form.pwd1.value)) {
+        alert("The password you have entered is not valid! Password must be combination of capital letter, number and special character");
+        form.pwd1.focus();
+        return false;
+      }
+    } else {
+      alert("Error: Please check that you've entered and confirmed your password!");
+      form.pwd1.focus();
+      return false;
+    }
+    return true;
+  }
+
+</script>
+            <form method="POST" action="htod.html" onsubmit="return checkForm(this);">
+       
+<table cols='2'cellpadding="2" align="center" >
+
+<tr><td><input type="text" name="username" placeholder="FULL NAME"></td></tr>
+<tr><td> <input type="text" email="email id" placeholder="email@example.com"></td></tr>
+<tr><td><input type="text" placeholder="10-digit mobile no."></td></tr>
+<tr><td><input type="password" name="pwd1" placeholder="password"></td></tr>
+<tr><td><input type="password" name="pwd2" placeholder="confirm password"></td></tr>
+<tr><td><input type="radio" name="sex" value="male">Male
+<input type="radio" name="sex" value="female">Female </td></tr>
+<tr><td><input type="text" placeholder="Enter Your City"></td></tr>
+<tr><td><input type="radio" name="job" value="job">Iam a Job-Hunter.
+<input type="radio" name="job" value="job">Iam a Job-Provider. </td></tr>
+
+
+<table cols='2' cellpadding="2" align="center">
+    
+<tr><td><td><br>
+    IF ALREADY A MEMBER ? <a href="login.html">LOGIN</a><br>
+    <br><a href="http://www.facebook.com/"><input type="submit" value="signup" name="signup"></a><input type="submit" value="cancel" name="cancel" ></td></td></tr>
+
+</p>
+</form>
+    
+</body>
+		</div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  
+    
+  </body>
+</html>
